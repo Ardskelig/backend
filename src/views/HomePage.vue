@@ -145,13 +145,7 @@ const activities = reactive([
       </section>
     </div>
         </div>
-        <div class="input-area">
-          <el-input
-              placeholder="Ask a question"
-              class="input-box"
-          />
-          <el-button type="primary" class="send-btn">Send</el-button>
-        </div>
+        
       </div>
     </el-main>
   </div>

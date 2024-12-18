@@ -19,7 +19,16 @@ const router = createRouter({
       path:'/clubs',
       name:'clubs',
       component:ClubAdminPage
-  },
+    },
+    {
+      path:'/',
+      name:'home',
+      component:HomePage
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/'
+    },
   ],
 })
 
