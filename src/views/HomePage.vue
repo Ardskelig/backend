@@ -66,7 +66,7 @@ const activities = reactive([
       <div class="menu">
         <div class="menu-item active" @click="goToHome" >主页-管理</div>
         <div class="menu-item "       @click="goToChat" >chat_bpmn</div>
-        <div class="menu-item"        @click="goToClubs">社团管理</div>
+        <!-- <div class="menu-item"        @click="goToClubs">社团管理</div> -->
         <div class="menu-item"        >验证</div>
       </div>
       <div class="footer">Start Free Trial</div>
