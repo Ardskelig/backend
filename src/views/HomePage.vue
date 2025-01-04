@@ -67,9 +67,10 @@ const activities = reactive([
         <div class="menu-item active" @click="goToHome" >主页-管理</div>
         <div class="menu-item "       @click="goToChat" >chat_bpmn</div>
         <!-- <div class="menu-item"        @click="goToClubs">社团管理</div> -->
-        <div class="menu-item"        >验证</div>
+        <div class="menu-item"        >咨询</div>
+        <div class="menu-item"        >日程</div>
       </div>
-      <div class="footer">Start Free Trial</div>
+      <!-- <div class="footer">Start Free Trial</div> -->
     </el-aside>
 
     <!-- 主内容区 -->
@@ -82,9 +83,9 @@ const activities = reactive([
     <div class="container">
     <!-- 新添加活动 -->
       <section>
-        <h2 class="section-title">校务办公</h2>
+        <h2 class="section-title">校园活动</h2>
         <div class="grid">
-          <div class="grid-item" v-for="item in activities" :key="item.title">
+          <div class="grid-item" v-for="item in activities" :key="item.title" @click="router.push('activity')">
             <div class="icon" :style="{ backgroundColor: item.bgColor }">
               <span>{{ item.icon }}</span>
             </div>

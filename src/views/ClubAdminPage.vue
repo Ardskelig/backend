@@ -23,9 +23,10 @@ const goToChat=()=>{
         <div class="menu-item " @click="goToHome" >主页-管理</div>
         <div class="menu-item "       @click="goToChat" >chat_bpmn</div>
         <!-- <div class="menu-item active"        @click="goToClubs">社团管理</div> -->
-        <div class="menu-item"        >验证</div>
+        <div class="menu-item"        >咨询</div>
+        <div class="menu-item"        >日程</div>
       </div>
-      <div class="footer">Start Free Trial</div>
+      <!-- <div class="footer">Start Free Trial</div> -->
     </el-aside>
 
     <!-- 主内容区 -->

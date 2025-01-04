@@ -17,12 +17,12 @@ const goToChat=()=>{
 // 模拟的聊天消息
 const chatMessages = ref([
   { sender: 'model', text: '你好！请告诉我你的流程描述，我会为你生成一个BPMN流程图。' },
-  { sender: 'user', text: '我想创建一个简单的流程，包含开始、结束和一个任务。' },
+  { sender: 'user', text: '我想创建一个关于校园科技创新大赛的活动流程，包含准备阶段，活动准备阶段，以及活动开始，活动评审，活动结束阶段。' },
   { sender: 'model', text: '好的，我已经生成了一个简单的BPMN流程图。' },
-  { sender: 'user', text: '那能否加入更多的任务节点，并定义每个节点的负责人？' },
-  { sender: 'model', text: '我已经更新了流程，加入了更多的任务节点，并设置了负责人。' },
-  { sender: 'user', text: '请将这个流程保存下来，并提供下载链接。' },
-  { sender: 'model', text: '流程图已保存，您可以通过下面的链接下载它。' },
+  { sender: 'user', text: '现在我将详细描述一些过程：确定大赛日期和地点，参与者：主办方，地点：风雨操作、活动中心；发布活动通知，参与者：主办方，地点：活动中心；选手报名，参与者：参赛选手，地点：活动中心，条件：报名截止日期前' },
+  { sender: 'model', text: '我已经更新了流程，加入了更多的任务节点，并设置了相关消息事件等。' },
+  { sender: 'user', text: '请将这个流程保存下来' },
+  { sender: 'model', text: '流程图已保存，您可以通过按钮发布这个活动。' },
 ]);
 // 模拟的BPMN图数据
 const bpmnXml = ref(`
@@ -48,10 +48,11 @@ const bpmnXml = ref(`
       <div class="menu">
         <div class="menu-item "       @click="goToHome" >主页-管理</div>
         <div class="menu-item active" @click="goToChat" >chat_bpmn</div>
+        <div class="menu-item"        >咨询</div>
+        <div class="menu-item"        >日程</div>
         <!-- <div class="menu-item"        @click="goToClubs">社团管理</div> -->
-        <div class="menu-item">验证</div>
       </div>
-      <div class="footer">Start Free Trial</div>
+      <!-- <div class="footer">Start Free Trial</div> -->
     </el-aside>
 
     <!-- 主内容区 -->
@@ -73,20 +74,21 @@ const bpmnXml = ref(`
               placeholder="Ask a question"
               class="input-box"
           />
-          <el-button type="primary" class="send-btn">Send</el-button>
+          <el-button type="primary" class="send-btn">发送</el-button>
         </div>
       </div>
 
       <!-- BPMN 图展示区域 -->
       <div class="bpmn-section">
-        <h3>Process diagrams</h3>
+        <h3>bpmn图处理</h3>
         <div class="toolbar">
-          <el-button plain size="small">Download as image</el-button>
-          <el-button plain size="small">Export as .bpmn</el-button>
-          <el-button plain size="small">Fit to view</el-button>
+          <el-button plain size="large" type="primary">以图片格式下载</el-button>
+          <el-button plain size="large" type="primary">按.bpmn格式导出</el-button>
+          <el-button plain size="large" type="success">发布活动 </el-button>
         </div>
         <div class="bpmn-placeholder">
           <!-- BPMN 图占位区域 -->
+          <el-image style="width: 800px; height: 500px" src="http://yanzushengkai.oss-cn-beijing.aliyuncs.com/bpmn_img.jpg" :fit="fit" />
           <BpmnRenderer :bpmnXml="bpmnXml" />
         </div>
       </div>
